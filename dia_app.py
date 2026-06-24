@@ -1,8 +1,11 @@
-import streamlit as st
-import pandas as pd
+import os
 import joblib
+import streamlit as st
 
-# Load model
+if not os.path.exists("diamond.pkl"):
+    st.error("diamond.pkl not found!")
+    st.stop()
+
 model = joblib.load("diamond.pkl")
 
 st.title("💎 Diamond Price Prediction")
